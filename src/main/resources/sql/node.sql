@@ -1,55 +1,27 @@
--------------------------------- TABLE User --------------------------
-delete from User;
-insert into User (id, username, password) values (1910, 'Flamingo', '294f2e85f571580670cfc5f29a0a040db9b4fc710dfb222726dfb2e1ed3f84e1dbfbde85c2cb6afb');
-
--------------------------------- TABLE NODE --------------------------
 delete from Node;
-insert into Node (id, name) values (1910, 'Flamingo');
-insert into Node (id, name, parent_id) values (1911, 'Leopard', 1910);
-insert into Node (id, name, parent_id) values (1912, 'Caribou', 1910);
-insert into Node (id, name, parent_id) values (1913, 'Giraff', 1910);
+insert into Node (id, name) values (1910, '天津城建大学');
+insert into Node (id, name, parent_id) values (1940, '图书馆', 1910);
+insert into Node (id, name, parent_id) values (1980, '第一书库', 1940);
+insert into Node (id, name, parent_id) values (1981, '第二书库', 1940);
+insert into Node (id, name, parent_id) values (1982, '第三书库', 1940);
+insert into Node (id, name, parent_id) values (1983, '第四书库', 1940);
+insert into Node (id, name, parent_id) values (1984, '第五书库', 1940);
+insert into Node (id, name, parent_id) values (1941, '现代教育中心', 1910);
+insert into Node (id, name, parent_id) values (1950, '现代教育中心A区', 1941);
+insert into Node (id, name, parent_id) values (1951, '现代教育中心B区', 1941);
+insert into Node (id, name, parent_id) values (1952, '现代教育中心C区', 1941);
+insert into Node (id, name, parent_id) values (1960, '现代教育中心C区1楼', 1952);
+insert into Node (id, name, parent_id) values (1961, '现代教育中心C区2楼', 1952);
+insert into Node (id, name, parent_id) values (1962, '现代教育中心C区3楼', 1952);
+insert into Node (id, name, parent_id) values (1970, 'C301', 1962);
+insert into Node (id, name, parent_id) values (1971, 'C302', 1962);
+insert into Node (id, name, parent_id) values (1972, 'C303', 1962);
+insert into Node (id, name, parent_id) values (1973, 'C304', 1962);
+insert into Node (id, name, parent_id) values (1974, 'C305', 1962);
+insert into Node (id, name, parent_id) values (1975, 'Harley.s lab', 1962);
 
 
-------------------------------------- TABLE NODE_ATTRIBUTES ----------------------------------
 delete from Node_Attributes;
-insert into Node_Attributes (node_id, attributes_key, attributes) values (1910, 'How', 'Brain');
-insert into Node_Attributes (node_id, attributes_key, attributes) values (1910, 'Why', 'Reason');
-insert into Node_Attributes (node_id, attributes_key, attributes) values (1910, 'Yum', 'Cheese');
-
-
-------------------------- TABLE NODE_MODULES ----------------------
-delete from Node_Modules;
-insert into Node_Modules (node_id, modules) values (1910, 'LIBRARY');
-insert into Node_Modules (node_id, modules) values (1910, 'INDEX');
-
----------------------------------------------- TABLE BOOK ------------------------------------
-delete from Book;
-insert into Book (isbn, title) values ('978-0-13-468599-1', 'Effective Java');
-insert into Book (isbn, title) values ('978-1-78528-612-4', 'Apache Maven Cookbook');
-insert into Book (isbn, title) values ('978-1-61729-356-6', 'Modern Java in Action');
-insert into Book (isbn, title) values ('978-1-61729-045-9', 'Java Persistence with Hibernate');
-insert into Book (isbn, title) values ('978-1-61729-494-5', 'Spring in Action');
-
-------------------------------- TABLE BOOK_LINK -----------------------------
-delete from Book_Link;
-insert into Book_Link (depot_id, book_id) values (1910, '978-0-13-468599-1');
-insert into Book_Link (depot_id, book_id) values (1910, '978-1-78528-612-4');
-insert into Book_Link (depot_id, book_id) values (1910, '978-1-61729-356-6');
-
-
------------------------- TABLE AUTHOR ------------------
-delete from Author;
-insert into Author (id, name) values (2001, 'Joshua');
-insert into Author (id, name) values (2002, 'Raghuram');
-insert into Author (id, name) values (2003, 'Raoul');
-insert into Author (id, name) values (2004, 'Gavin');
-insert into Author (id, name) values (2005, 'Craig');
-
-------------------------------- TABLE AUTHOR_LINK -------------------------------
-delete from Author_Link;
-insert into Author_Link (book_id, author_id) values ('978-0-13-468599-1', 2001);
-insert into Author_Link (book_id, author_id) values ('978-1-78528-612-4', 2002);
-insert into Author_Link (book_id, author_id) values ('978-1-61729-356-6', 2003);
-insert into Author_Link (book_id, author_id) values ('978-1-61729-045-9', 2004);
-insert into Author_Link (book_id, author_id) values ('978-1-61729-494-5', 2005);
-
+insert into Node_Attributes (node_id, attributes_key, attributes) values (1910, '成立时间', '1978');
+insert into Node_Attributes (node_id, attributes_key, attributes) values (1910, '占地面积', '61万平方米');
+insert into Node_Attributes (node_id, attributes_key, attributes) values (1910, '校训', '重德重能 善学善建');

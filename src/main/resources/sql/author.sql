@@ -1,0 +1,21 @@
+delete from Author;
+insert into Author (id, name) values (2001, 'Joshua');
+insert into Author (id, name) values (2002, 'Raghuram');
+insert into Author (id, name) values (2003, 'Raoul');
+insert into Author (id, name) values (2004, 'Gavin');
+insert into Author (id, name) values (2005, 'Craig');
+insert into Author (id, name) values (2006, 'Harley');
+
+delete from Author_Link;
+insert into Author_Link (book_id, author_id) values ('978-0-13-468599-1', 2001);
+insert into Author_Link (book_id, author_id) values ('978-1-78528-612-4', 2002);
+insert into Author_Link (book_id, author_id) values ('978-1-61729-356-6', 2003);
+insert into Author_Link (book_id, author_id) values ('978-1-61729-045-9', 2004);
+insert into Author_Link (book_id, author_id) values ('978-1-61729-494-5', 2005);
+insert into Author_Link (book_id, author_id) values ('978-1-48421-702-3', 2006);
+insert into Author_Link (book_id, author_id) values ('978-0-07313-361-4', 2006);
+insert into Author_Link (book_id, author_id) values ('978-0-07025-492-3', 2006);
+insert into Author_Link (book_id, author_id) values ('978-0-07222-553-2', 2006);
+insert into Author_Link (book_id, author_id) values ('978-0-13033-448-0', 2006);
+insert into Author_Link (book_id, author_id) values ('978-0-78972-093-1', 2006);
+insert into Author_Link (book_id, author_id) values ('978-0-78972-697-1', 2006);
