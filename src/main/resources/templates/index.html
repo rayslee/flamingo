@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Explore</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" th:href="@{/basic.css}" />
+</head>
+<body>
+	
+	<nav>
+	<ul>
+		<li><a th:href="@{/node/admin/check/{id}(id=${id})}">Home</a></li>
+		<li><a href="">Schedule</a></li>
+		<li><a href="">Library</a></li>
+		<li class="selected"><a href="">Index</a></li>
+	</ul>
+	</nav>
+	
+	<section id="block">
+		<br>
+		<h2>u can ask me :</h2>
+		<form th:action="@{/index/{id}/(id=${id})}" th:attr="action=@{/subscribe}">
+       		<input type="text" name="value" />
+       		
+       		<input type="submit" value="Search" />
+	    </form>
+	</section>
+	
+	<section id="block">
+		<h2>we found these :</h2>
+		<div th:each="result : *{results}">
+			<br>
+			<span th:text="*{result.getContent()}">CONTENT</span>
+		</div>
+		<a th:href="@{/index/broker}">Next Page</a>
+	</section>
+	
+	<footer>
+		&copy; 2019, Ray LEE
+		<br>
+		All trademarks and registered trademarks appearing on this site are the property
+		of their respective owners.
+	</footer>
+
+</body>
+</html>

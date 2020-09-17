@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Container</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" th:href="@{/basic.css}" />
+</head>
+<body>
+	
+	<nav>
+	<ul>
+		<li class="selected"><a href="">Home</a></li>
+		<li><a href="">Schedule</a></li>
+		<li><a href="">Library</a></li>
+		<li><a href="">Index</a></li>
+	</ul>
+	</nav>
+	
+	<section id="block">
+		<h1>Welcome to <span th:text="*{node.name}">XXX</span> :</h1>
+		<div th:each="attribute : *{node.attributes}">
+			<br>
+			<span th:text="*{attribute.key}">XXX</span> : 
+			<span th:text="*{attribute.value}">XXX</span>
+		</div>
+		
+		<br>
+		<h1>Append Attribute :</h1>
+		<form th:action="@{/node/admin/modify/{id}/attr/append(id=${node.id})}" th:attr="action=@{/subscribe}">
+       		<input type="text" name="key" />
+       		<input type="text" name="val" />
+       		
+       		<input type="submit" value="Append" />
+	    </form>
+	</section>
+	
+	<section id="block">
+		<h1>Existed Child :</h1>
+		<div th:each="child : *{node.childs}">
+			<br>
+			<span th:text="*{child.id}">XXX</span>
+			<a th:href="@{/node/admin/check/{id}(id=${child.id})}">
+				<span th:text="*{child.name}">XXX</span>
+			</a>
+		</div>
+		
+		<br>
+		<h1>Append Child :</h1>
+		<form th:action="@{/node/admin/modify/{id}/child/append(id=${node.id})}" th:attr="action=@{/subscribe}">
+       		<input type="text" name="childName" />
+       		
+       		<input type="submit" value="Append" />
+	    </form>
+	</section>
+	
+	<section id="block">
+		<h1>Existed Service</h1>
+		<a th:href="@{/index/check/{id}(id=${node.id})}">INDEX</a>
+		<div th:each="module : *{node.modules}">
+			<br>
+			<a th:href="@{/{moduleName}/admin/check/{id}(moduleName=${module.lowerCase},id=${node.id})}">
+				<span th:text="*{module}">XXX</span>
+			</a>
+		</div>
+	</section>
+	
+	<section id="block">
+		<h1>Register Service</h1>
+		<div th:each="service : *{services}">
+			<br>
+			<a th:href="@{/{moduleName}/admin/check/{id}(moduleName=${service.lowerCase},id=${node.id})}">
+				<span th:text="*{service}">XXX</span>
+			</a>
+		</div>
+	</section>
+	
+	<footer>
+		&copy; 2019, Ray LEE
+		<br>
+		All trademarks and registered trademarks appearing on this site are the property
+		of their respective owners.
+	</footer>
+
+</body>
+</html>

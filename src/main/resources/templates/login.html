@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Falmingo</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" th:href="@{/basic.css}" />
+</head>
+<body>
+	
+	<nav>
+	<ul>
+		<li class="selected"><a href="">Home</a></li>
+		<li><a href="">Schedule</a></li>
+		<li><a href="">Library</a></li>
+		<li><a href="">Index</a></li>
+	</ul>
+	</nav>
+	
+	<section id="block">
+		<p>New here? Click 
+       	<a th:href="@{/register}">here</a> to register.</p>
+       	
+		<form method="POST" th:action="@{/login}" id="loginForm">
+      		<label for="username">Username: </label>
+      		<input type="text" name="username" id="username" /><br/>
+      
+      		<label for="password">Password: </label>
+      		<input type="password" name="password" id="password" /><br/>
+      
+      		<input type="submit" value="Login"/>
+    	</form>
+	</section>
+	
+	<footer>
+		&copy; 2019, Ray LEE
+		<br>
+		All trademarks and registered trademarks appearing on this site are the property
+		of their respective owners.
+	</footer>
+
+</body>
+</html>

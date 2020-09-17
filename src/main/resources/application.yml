@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/ray
+    username: root
+    password: libo0614..
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  redis:
+    host: localhost
+    port: 6379
+
+logging:
+  file: Flamingo.log

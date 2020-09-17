@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Library</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" th:href="@{/basic.css}" />
+</head>
+<body>
+	
+	<nav>
+	<ul>
+		<li><a th:href="@{/node/admin/check/{id}(id=${nodeId})}">Home</a></li>
+		<li><a href="">Schedule</a></li>
+		<li class="selected"><a href="">Library</a></li>
+		<li><a href="">Index</a></li>
+	</ul>
+	</nav>
+	
+	<section id="block">
+		<h1>Existed Books</h1>
+		<div th:each="bookLink : *{page.getContent()}">
+			<br>
+			<span th:text="*{bookLink}">XXX</span>
+		</div>
+	</section>
+	
+	<section id="block">
+		<h1>Append Book By ISBN</h1>
+	    <form th:action="@{/library/admin/modify/{id}/append/isbn(id=${nodeId})}" th:attr="action=@{/subscribe}">
+	    	<label for="isbn">ISBN: </label> 
+	    	<input type="text" name="isbn" />
+	    	
+	    	<br><br><input type="submit" value="Append" />
+	    </form>
+	</section>
+	
+	<section id="block">
+		<h1>Missed ISBN ? Feedback us :</h1>
+	    <form method="POST" th:action="@{/library/admin/modify/{id}/append/book(id=${nodeId})}" th:object="${bookForm}">
+	    	<label for="isbn">ISBN: </label> 
+	    	<input type="text" th:field="*{isbn}" />
+	    	<span th:if="${#fields.hasErrors('isbn')}" 
+	    		  th:errors="*{isbn}">XXX</span>
+	    		  
+	    	<label for="title">Title: </label> 
+	    	<input type="text" th:field="*{title}" />
+	    	<span th:if="${#fields.hasErrors('title')}" 
+	    		  th:errors="*{title}">XXX</span>
+	    	
+	    	<label for="author">Author: </label> 
+	    	<input type="text" th:field="*{author}" />
+	    	<span th:if="${#fields.hasErrors('author')}" 
+	    		  th:errors="*{author}">XXX</span>
+	    	
+	    	<br><br><input type="submit" value="Append" />
+	    </form>
+	</section>
+	
+	<footer>
+		&copy; 2019, Ray LEE
+		<br>
+		All trademarks and registered trademarks appearing on this site are the property
+		of their respective owners.
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Schedule</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" th:href="@{/basic.css}" />
+</head>
+<body>
+	
+	<nav>
+	<ul>
+		<li><a th:href="@{/node/admin/check/{id}(id=${depotId})}">Home</a></li>
+		<li class="selected"><a href="">Schedule</a></li>
+		<li><a href="">Library</a></li>
+		<li><a href="">Index</a></li>
+	</ul>
+	</nav>
+	
+	<section id="block">
+		<h1>Existed Schedules</h1>
+		<div th:each="schedule : *{schedules}">
+			<br>
+			<span th:text="*{schedule.name}">XXX</span>
+			<span th:text="*{schedule.start}">XXX</span>
+			<span th:text="*{schedule.finish}">XXX</span>
+		</div>
+	</section>
+	
+	<section id="block">
+		<h1>Append Schedule</h1>
+	    <form method="POST" th:action="@{/schedule/admin/modify/{id}/append(id=${depotId})}" th:object="${newbie}">
+	    	<label for="name">Name: </label> 
+	    	<input type="text" th:field="*{name}" />
+	    	<span th:if="${#fields.hasErrors('name')}" 
+	    		  th:errors="*{name}">XXX</span>
+	    	
+	    	<br><br>
+	    	<label for="date">Date:&nbsp;&nbsp;</label> 
+	    	<input type="date" th:field="*{startDate}"/>
+			<input type="date" th:field="*{finishDate}"/>
+			
+			<br><br>
+			<label for="time">Time:&nbsp;</label> 
+			<input type="time" th:field="*{startTime}"/>
+			<input type="time" th:field="*{finishTime}"/>
+			<span th:if="${#fields.hasErrors('startTime')}" 
+	    		  th:errors="*{startTime}">XXX</span>
+			
+			<br><br>
+			<label for="week">Week:&nbsp;</label> 
+			<select th:field="*{weeks}" multiple="multiple">
+				<option th:each="dayOfWeek : ${dayOfWeeks}"
+						th:value="${dayOfWeek}"
+						th:text="${dayOfWeek}">XXX</option>
+			</select>
+	    
+	    	<br><br><input type="submit" value="Append" />
+	    </form>
+		
+	</section>
+	
+	<footer>
+		&copy; 2019, Ray LEE
+		<br>
+		All trademarks and registered trademarks appearing on this site are the property
+		of their respective owners.
+	</footer>
+
+</body>
+</html>
